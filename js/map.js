@@ -39,7 +39,7 @@ function main() {
             // add sublayers & change the query for the first layer  
             var subLayerOptions = {
                 sql: "SELECT * FROM result_wknz_1",
-                cartocss: '#result_wknz_1{polygon-fill:#FFFFB2;polygon-opacity:.8;line-color:#FFF;line-width:1;line-opacity:1}#result_wknz_1 [cdu_zweit<=41.6]{polygon-fill:#000;polygon-opacity:1,}#result_wknz_1 [cdu_zweit<=35.75]{polygon-fill:#000;polygon-opacity:.8,}#result_wknz_1 [cdu_zweit<=33.9]{polygon-fill:#000;polygon-opacity:.6,}#result_wknz_1 [cdu_zweit<=32.7]{polygon-fill:#000;polygon-opacity:.4,}#result_wknz_1 [cdu_zweit<=30.85]{polygon-fill:#000;polygon-opacity:.2,}'
+                cartocss: '#result_wknz_1{polygon-fill:#000;polygon-opacity:.8;line-color:#FFF;line-width:1;line-opacity:1}'
             }
 
             var sublayer = layer.getSubLayer(0);
@@ -55,7 +55,7 @@ function main() {
                 sieger: function() {
                     sublayers[0].set({
                         sql: "SELECT * FROM result_wknz_1",
-                        cartocss: '#result_wknz_1{polygon-fill:#FFFFB2;polygon-opacity:0.8;line-color:#FFF;line-width:1;line-opacity:1}#result_wknz_1[sieger=cdu_zweit]{polygon-fill:#000}'
+                        cartocss: '#result_wknz_1{polygon-fill:#000;polygon-opacity:.8;line-color:#FFF;line-width:1;line-opacity:1}'
                     });
                     return true;
                 },
