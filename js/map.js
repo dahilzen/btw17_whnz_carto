@@ -97,7 +97,7 @@ function main() {
                 afd: function() {
                     sublayers[0].set({
                         sql: "SELECT * FROM result_wknz_1",
-                        cartocss: '#result_wknz_1{polygon-fill:#FFFFB2;polygon-opacity:.8;line-color:#FFF;line-width:.5;line-opacity:1}#result_wknz_1 [fdp_zweit<=19.8]{polygon-fill:#ecbd00;polygon-opacity:1}#result_wknz_1 [fdp_zweit<=16.5]{polygon-fill:#ecbd00;polygon-opacity:.8}#result_wknz_1 [fdp_zweit<=15]{polygon-fill:#ecbd00;polygon-opacity:.6}#result_wknz_1 [fdp_zweit<=14.2]{polygon-fill:#ecbd00;polygon-opacity:.4}#result_wknz_1 [fdp_zweit<=13.4]{polygon-fill:#ecbd00;polygon-opacity:.2}'
+                        cartocss: '#result_wknz_1{polygon-fill:#FFFFB2;polygon-opacity:.8;line-color:#FFF;line-width:.5;line-opacity:1}#result_wknz_1 [afd_zweit<=21.5]{polygon-fill:#00baff;polygon-opacity:1}#result_wknz_1 [afd_zweit<=15]{polygon-fill:#00baff;polygon-opacity:.8}#result_wknz_1 [afd_zweit<=13.8]{polygon-fill:#00baff;polygon-opacity:.6}#result_wknz_1 [afd_zweit<=12.7]{polygon-fill:#00baff;polygon-opacity:.4}#result_wknz_1 [afd_zweit<=11.8]{polygon-fill:#00baff;polygon-opacity:.2}'
                     });
                     return true;
                 },
