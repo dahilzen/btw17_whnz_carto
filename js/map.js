@@ -5,9 +5,9 @@ function setInitialMapZoom() {
     var mapZoom;
 
     if (viewportWidth < [800]) {
-        mapZoom = [11];
-    } else {
         mapZoom = [10];
+    } else {
+        mapZoom = [9];
     }
 
     return mapZoom;
