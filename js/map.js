@@ -1,19 +1,45 @@
+function setInitialMapZoom() {
+
+    var viewportWidth = window.innerWidth;
+    //    var center = [49.1397278, 9.219251];
+    var mapZoom;
+
+    if (viewportWidth < [800]) {
+        mapZoom = [11];
+    } else {
+        mapZoom = [10];
+    }
+
+    return mapZoom;
+};
+
 function main() {
 
     var polygon;
 
+    /*    var map_object = L.map('map', {
+            zoomControl: false,
+            attributionControl: false,
+            legends: false,
+            layer_selector: false,
+        }).setView([49.0267210, 9.1592710], 10);*/
+
     var map_object = L.map('map', {
+        center: [49.0267210, 9.1592710],
+        zoom: setInitialMapZoom(),
+        minZoom: 9,
+        maxZoom: 12,
         zoomControl: false,
         attributionControl: false,
         legends: false,
         layer_selector: false,
-    }).setView([49.0267210, 9.1592710], 10);
+    });
 
-    // Zoomfunktion komplett deaktivieren
-    map_object.touchZoom.disable();
-    map_object.doubleClickZoom.disable();
-    map_object.scrollWheelZoom.disable();
-    map_object.keyboard.disable();
+    /*    // Zoomfunktion komplett deaktivieren
+        map_object.touchZoom.disable();
+        map_object.doubleClickZoom.disable();
+        map_object.scrollWheelZoom.disable();
+        map_object.keyboard.disable();*/
 
     var sublayers = [];
 
@@ -39,7 +65,7 @@ function main() {
             // add sublayers & change the query for the first layer  
             var subLayerOptions = {
                 sql: "SELECT * FROM result_wknz_1",
-                cartocss: '#result_wknz_1{polygon-fill:#000;polygon-opacity:.8;line-color:#FFF;line-width:1;line-opacity:1}'
+                cartocss: '#result_wknz_1{polygon-fill:#FFFFB2;polygon-opacity:.8;line-color:#FFF;line-width:1;line-opacity:1}#result_wknz_1 [cdu_zweit<=41.6]{polygon-fill:#000;polygon-opacity:1,}#result_wknz_1 [cdu_zweit<=35.75]{polygon-fill:#000;polygon-opacity:.8,}#result_wknz_1 [cdu_zweit<=33.9]{polygon-fill:#000;polygon-opacity:.6,}#result_wknz_1 [cdu_zweit<=32.7]{polygon-fill:#000;polygon-opacity:.4,}#result_wknz_1 [cdu_zweit<=30.85]{polygon-fill:#000;polygon-opacity:.2,}'
             }
 
             var sublayer = layer.getSubLayer(0);
@@ -52,13 +78,6 @@ function main() {
 
             //we define the queries that will be performed when we click on the buttons, by modifying the SQL of our layer
             var LayerActions = {
-                sieger: function() {
-                    sublayers[0].set({
-                        sql: "SELECT * FROM result_wknz_1",
-                        cartocss: '#result_wknz_1{polygon-fill:#000;polygon-opacity:.8;line-color:#FFF;line-width:1;line-opacity:1}'
-                    });
-                    return true;
-                },
                 cdu: function() {
                     sublayers[0].set({
                         sql: "SELECT * FROM result_wknz_1",
